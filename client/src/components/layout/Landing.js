@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Posts from "../Posts";
 class Landing extends Component {
   render() {
     return (
@@ -41,6 +42,8 @@ class Landing extends Component {
               >
                 Log In
               </Link>
+              <Posts/>
+              
             </div>
           </div>
         </div>
