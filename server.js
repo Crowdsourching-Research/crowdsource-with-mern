@@ -5,7 +5,13 @@ const passport = require("passport");
 const users = require("./routes/api/users");
 const videoRouter = require('./routes/videos-router')
 
-const app = express();
+// Import the library:
+var cors = require('cors');
+var app = express();
+// Then use it before your routes are set up:
+app.use(cors());
+
+
 // Bodyparser middleware
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
