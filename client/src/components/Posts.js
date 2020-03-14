@@ -14,6 +14,8 @@ class Posts extends Component {
        
         const postItems = this.props.posts.map(post => (
                 // <div className="cards">
+                // <div className="container valign-wrapper">
+
                     <Grid item xs>
                     <Card style={{ width: '18rem' }}>
                         <p>Paper Title: {post.paperName} </p>
@@ -21,20 +23,22 @@ class Posts extends Component {
                         <p>Video Creator: {post.videoCreator} </p>
                     </Card>
                   </Grid>
-                // </div>
+                //  </div>
         ))
        
         return (
 
 
-<div>
+            <div className="container valign-wrapper">
+
     <Grid 
     container spacing = {5}
 
     >
                     {postItems} 
                     </Grid>
-</div>
+                    </div>
+
         )
 
     }

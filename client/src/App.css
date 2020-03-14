@@ -3,4 +3,10 @@
      /* flex-wrap: wrap;
      flex-direction: 'row' */
     border: black;
+};
+.formsubmit {
+    width: 50%;
+};
+.hi {
+    width: 50%;
 }

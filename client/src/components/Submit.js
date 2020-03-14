@@ -1,13 +1,21 @@
 import React, { Component } from "react";
 import axios from "axios";
+import '../App.css';
+import Modal from 'react-modal';
+import { makeStyles, StylesProvider } from '@material-ui/core/styles';
+ import Navbar from "./layout/Navbar";
+// import Navbar from "./Navbar/Navbar";
+ 
 
+  
 class Submit extends Component {
+   
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             title: '',
             author: '',
-            video: '', 
+            video: '',
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -18,19 +26,19 @@ class Submit extends Component {
         const target = event.target;
         const value = target.value
         const name = target.name;
-    
+
         this.setState({
-          [name]: value
+            [name]: value
         });
     }
 
     submitPost = (postData) => {
         axios
-          .post("/api/videos", postData)
-          .catch(err =>
-            console.log(err)
-          );
-      };
+            .post("/api/videos", postData)
+            .catch(err =>
+                console.log(err)
+            );
+    };
 
 
     handleSubmit(event) {
@@ -43,28 +51,42 @@ class Submit extends Component {
             videoCreator: this.state.video
 
         }
-        this.submitPost(newPost)        
+        this.submitPost(newPost)
     }
 
- 
+    
+
+
     render() {
+        const mystyle = {
+                width: 500,
+                marginLeft: "500px"
+
+              };
         return (
-            <form onSubmit={this.handleSubmit}>
+            <div>
+
+            {/* <Navbar></Navbar> */}
+            
+            <form onSubmit={this.handleSubmit} 
+            style={mystyle}
+            >
                 <label>
                     Title:
-                <input type="text" name="title" value={this.state.value} onChange={this.handleChange} />
+                 <input type="text" name="title" value={this.state.value} onChange={this.handleChange} />
                 </label>
                 <label>
                     Author:
-                <input type="text" name="author"  value={this.state.value} onChange={this.handleChange} />
+                 <input type="text" name="author" value={this.state.value} onChange={this.handleChange} />
                 </label>
                 <label>
                     Video:
-                <input type="text" name="video" value={this.state.value} onChange={this.handleChange} />
+                 <input type="text" name="video" value={this.state.value} onChange={this.handleChange} />
                 </label>
 
                 <input type="submit" value="Submit" />
             </form>
+            </div>
         );
     }
 }
