@@ -21,16 +21,21 @@
   },
   "homepage": "https://github.com/Crowdsourching-Research/MERN-Passport#readme",
   "dependencies": {
+    "@material-ui/core": "^4.9.5",
+    "@material-ui/icons": "^4.9.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "flexbox-react": "^4.4.0",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.11",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "react-bootstrap": "^1.0.0-beta.17",
+    "react-modal": "^3.11.2",
     "validator": "^12.2.0"
   },
   "devDependencies": {

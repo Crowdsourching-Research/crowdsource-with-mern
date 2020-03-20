@@ -48,7 +48,7 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/submit" component={Submit} />
-            <Route exact path="/posts" component={Posts} />
+            {/* <Route exact path="/posts" component={Posts} /> */}
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>

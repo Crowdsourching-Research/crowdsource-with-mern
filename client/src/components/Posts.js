@@ -1,28 +1,48 @@
 import React, { Component } from "react";
 // import PropTypes from 'prop-types'
-import {connect} from 'react-redux';
-import {getPosts} from '../actions/postActions'
-
+import { connect } from 'react-redux';
+import { getPosts } from '../actions/postActions';
+import Card from 'react-bootstrap/Card';
+import Flexbox from 'flexbox-react';
+import "../App.css";
+import { Grid } from '@material-ui/core';
 class Posts extends Component {
     componentDidMount() {
         this.props.getPosts()
     }
     render() {
-        const postItems = this.props.posts.map ( post => (
-            <div>
-                <p> {post.paperName} </p>
-                <p> {post.paperAuthor} </p>
-                <p> {post.videoCreator} </p>
-            </div> 
-        )) 
+       
+        const postItems = this.props.posts.map(post => (
+                // <div className="cards">
+                // <div className="container valign-wrapper">
+
+                    <Grid item xs>
+                    <Card style={{ width: '18rem' }}>
+                        <p>Paper Title: {post.paperName} </p>
+                        <p>Paper Author: {post.paperAuthor} </p>
+                        <p>Video Creator: {post.videoCreator} </p>
+                    </Card>
+                  </Grid>
+                //  </div>
+        ))
+       
         return (
-            <div>
-                <h1> Posts </h1>
-                {postItems}
-            </div>
+
+
+            <div className="container valign-wrapper">
+
+    <Grid 
+    container spacing = {5}
+
+    >
+                    {postItems} 
+                    </Grid>
+                    </div>
+
         )
 
-}}
+    }
+}
 // Posts.propTypes = {
 //     getPosts: PropTypes.func.isRequired,
 //     posts: PropTypes.array.isRequired
@@ -31,5 +51,5 @@ class Posts extends Component {
 const mapStateToProps = state => ({
     posts: state.posts.items
 })
-  
-export default connect(mapStateToProps , {getPosts}) (Posts);
+
+export default connect(mapStateToProps, { getPosts })(Posts);

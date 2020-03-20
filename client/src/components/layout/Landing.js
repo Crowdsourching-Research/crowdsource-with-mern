@@ -1,22 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Posts from "../Posts";
+import { Menu } from "@material-ui/core";
+import SimpleTabs from "../menu/Menu";
 class Landing extends Component {
   render() {
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+      <div style={{marginTop: "0"}}>
+    <SimpleTabs/>
+      <div className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
-            <h4>
-              <b>Build</b> a login/auth app with the{" "}
-              <span style={{ fontFamily: "monospace" }}>MERN</span> stack from
-              scratch
-            </h4>
-            <p className="flow-text grey-text text-darken-1">
-              Create a (minimal) full-stack app with user authentication via
-              passport and JWTs
-            </p>
-            <br />
-            <div className="col s6">
+           
+            {/* <div className="col s6">
+              
               <Link
                 to="/register"
                 style={{
@@ -41,10 +38,13 @@ class Landing extends Component {
               >
                 Log In
               </Link>
+              
+              
             </div>
+            <Posts/> */}
           </div>
         </div>
-      </div>
+      </div></div>
     );
   }
 }
