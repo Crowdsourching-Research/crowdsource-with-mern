@@ -10,3 +10,10 @@
 .hi {
     width: 50%;
 }
+
+.link {
+    padding-right: 3%;
+    margin-left: 5%;
+    font-weight: bold;
+    font-size: 24px;
+}

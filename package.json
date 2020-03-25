@@ -39,6 +39,7 @@
     "react-alert": "^7.0.0",
     "react-bootstrap": "^1.0.0-beta.17",
     "react-modal": "^3.11.2",
+    "react-router-tabs": "^1.3.2",
     "validator": "^12.2.0"
   },
   "devDependencies": {

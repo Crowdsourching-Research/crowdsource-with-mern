@@ -22,8 +22,9 @@ class Posts extends Component {
                         <p>Paper Author: {post.paperAuthor} </p>
                         <p>Video Creator: {post.videoCreator} </p>
                     </Card>
-                  </Grid>
-                //  </div>
+                 </Grid>
+                //   </div>
+                //   </div>
         ))
        
         return (
@@ -31,12 +32,11 @@ class Posts extends Component {
 
             <div className="container valign-wrapper">
 
-    <Grid 
-    container spacing = {5}
-
-    >
+    <Grid container spacing = {5}>
                     {postItems} 
+
                     </Grid>
+
                     </div>
 
         )

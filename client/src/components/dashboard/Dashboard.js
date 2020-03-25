@@ -4,19 +4,21 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import Submit from "../Submit";
 import Posts from "../Posts";
-import Menuloggedin from "../Menuloggedin";
+// import Menuloggedin from "../Menuloggedin";
+
 class Dashboard extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
+  
   // onPostsClick = e => {
   // {<Posts/>};
   // };
   render() {
     const { user } = this.props.auth;
     return (<div>
-      <Menuloggedin></Menuloggedin>
+      {/* <Menuloggedin></Menuloggedin> */}
       {/* <div 
       // style={{ height: "75vh" }} 
       // className="container valign-wrapper"
@@ -25,11 +27,12 @@ class Dashboard extends Component {
         <div className="col s12 center-align">
 
           <h4>
+            
 
-            <b>Hey there,</b> {user.name.split(" ")[0]}
+            {/* <b>Hey there,</b> {user.name.split(" ")[0]} */}
             <p className="flow-text grey-text text-darken-1">
-              {/* You are logged into a full-stack{" "} */}
-              {/* <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏 */}
+              You are logged into a full-stack{" "}
+              <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
             </p>
           </h4>
           <button
@@ -48,7 +51,7 @@ class Dashboard extends Component {
         </div>
       </div>
       <div className="row">
-        {/* <Posts /> */}
+        <Posts />
         </div>
       {/* </div> */}
     </div>

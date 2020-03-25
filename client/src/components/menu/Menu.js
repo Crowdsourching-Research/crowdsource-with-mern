@@ -1,99 +1,65 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Posts from "../Posts";
+
 import Login from "../auth/Login";
 import Register from "../auth/Register";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Link } from '@material-ui/core';
+import { Provider } from "react-redux";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import store from "../store";
+import Submit from "../Submit";
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar'
+import Dashboard from '../dashboard/Dashboard';
+import "../../App.css";
+import { loginUser } from "../../actions/authActions";
 
 
 
+class Navigation extends Component {
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+  render() {
+    const loginUser = this.props.loginUser;
+    const user = this.props.user
 
-  return (
-    <Typography
-      component="div"
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && <Box p={3}>{children}</Box>}
-    </Typography>
-  );
+    return (
+      <div>
+        {loginUser ? (
+          <Navbar>
+            <Nav>
+              <Provider store={store}>
+                <Router>
+                  <Link to="/register" className="link"> Register </Link>
+                  <Link to="/login" className="link"> Login </Link>
+                  <Link to="/" className="link"> Posts</Link>
+                  <Route exact path="/" component={Dashboard} />
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/login" component={Login} />
+                </Router>
+              </Provider>
+            </Nav>
+          </Navbar>
+        )
+          : (
+            <Navbar>
+              <Nav>
+                <Provider store={store}>
+                  <Router>
+                    <Link to="/" className="link" username={user}> Posts</Link>
+                    <Link to="/submit" className="link" username={user}> Submit</Link>
+                    <Route exact path="/" component={Dashboard} />
+                    <Route exact path="/submit" component={Submit} />
+                  </Router>
+                </Provider>
+              </Nav>
+            </Navbar>
+          )}
+
+
+      </div>
+    )
+  }
 }
 
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
-};
+export default Navigation;
 
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
-
-export default function SimpleTabs() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-          <Tab label="Posts" {...a11yProps(0)} />
-          <Tab label="Register" {...a11yProps(1)} />
-          <Tab label="Log-in" {...a11yProps(2)} />
-        </Tabs>
-      </AppBar>
-      <TabPanel value=
-      {
-        <Link to={'/posts'} className="links"></Link>
-      // <Router>
-      //     <Route exact path="/posts" component={Posts} />
-      //   </Router>
-      } index={0}>
-        
-      </TabPanel>
-      <TabPanel
-        value={<Router>
-          <Route exact path="/register" component={Register} />
-        </Router>}
-        index={1}>
-       
-      </TabPanel>
-      <TabPanel 
-      value={
-      
-        <Router>
-          redirectTo(<Route exact path="/login" component={Login} />)</Router>
-        
-      } index={2}>
-        
-      </TabPanel>
-    </div>
-  );
-}
