@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
 import '../App.css';
-import Modal from 'react-modal';
+// import Modal from 'react-modal';
 import { makeStyles, StylesProvider } from '@material-ui/core/styles';
  import Navbar from "./layout/Navbar";
 // import Navbar from "./Navbar/Navbar";
- 
+import Alert from 'react-bootstrap/Alert';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import ReactDOM from 'react-dom';
+import AlertModal from './modals/AlertModal';
 
   
 class Submit extends Component {
@@ -38,6 +42,38 @@ class Submit extends Component {
             .catch(err =>
                 console.log(err)
             );
+             alert("Yay");
+            // function Example() {
+            //     const [show, setShow] = React.useState(false);
+              
+            //     const handleClose = () => setShow(false);
+            //     const handleShow = () => setShow(true);
+              
+            //     return (
+            //       <>
+            //         <Button variant="primary" onClick={handleShow}>
+            //           Launch demo modal
+            //         </Button>
+              
+            //         <Modal show={show} onHide={handleClose}>
+            //           <Modal.Header closeButton>
+            //             <Modal.Title>Modal heading</Modal.Title>
+            //           </Modal.Header>
+            //           <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+            //           <Modal.Footer>
+            //             <Button variant="secondary" onClick={handleClose}>
+            //               Close
+            //             </Button>
+            //             <Button variant="primary" onClick={handleClose}>
+            //               Save Changes
+            //             </Button>
+            //           </Modal.Footer>
+            //         </Modal>
+            //       </>
+            //     );
+            //   };
+              
+              // ReactDOM.render([Example]);
     };
 
 
@@ -61,13 +97,14 @@ class Submit extends Component {
         const mystyle = {
                 width: 500,
                 marginLeft: "500px"
-
               };
+            
+             
         return (
             <div>
 
             {/* <Navbar></Navbar> */}
-            
+            {/* <AlertModal/> */}
             <form onSubmit={this.handleSubmit} 
             style={mystyle}
             >

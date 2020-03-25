@@ -12,9 +12,9 @@ class Landing extends Component {
         <div className="row">
           <div className="col s12 center-align">
            
-            {/* <div className="col s6">
+            <div className="col s6">
               
-              <Link
+              {/* <Link
                 to="/register"
                 style={{
                   width: "140px",
@@ -37,11 +37,11 @@ class Landing extends Component {
                 className="btn btn-large btn-flat waves-effect white black-text"
               >
                 Log In
-              </Link>
+              </Link> */}
               
               
             </div>
-            <Posts/> */}
+            <Posts/>
           </div>
         </div>
       </div></div>

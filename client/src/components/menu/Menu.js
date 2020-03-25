@@ -9,6 +9,10 @@ import Box from '@material-ui/core/Box';
 import Posts from "../Posts";
 import Login from "../auth/Login";
 import Register from "../auth/Register";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Link } from '@material-ui/core';
+
+
 
 
 function TabPanel(props) {
@@ -61,20 +65,34 @@ export default function SimpleTabs() {
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab label="Posts" {...a11yProps(0)} />
-          <Tab label="Register" {...a11yProps(1)}   />
+          <Tab label="Register" {...a11yProps(1)} />
           <Tab label="Log-in" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
-        <Posts/>
+      <TabPanel value=
+      {
+        <Link to={'/posts'} className="links"></Link>
+      // <Router>
+      //     <Route exact path="/posts" component={Posts} />
+      //   </Router>
+      } index={0}>
+        
       </TabPanel>
-      <TabPanel  
-      value={value} 
-      index={1}>
-        <Register/>
+      <TabPanel
+        value={<Router>
+          <Route exact path="/register" component={Register} />
+        </Router>}
+        index={1}>
+       
       </TabPanel>
-      <TabPanel value={value} index={2}>
-        <Login/>
+      <TabPanel 
+      value={
+      
+        <Router>
+          redirectTo(<Route exact path="/login" component={Login} />)</Router>
+        
+      } index={2}>
+        
       </TabPanel>
     </div>
   );
